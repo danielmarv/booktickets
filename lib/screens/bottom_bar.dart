@@ -20,23 +20,27 @@ class _BottomBarState extends State<BottomBar> {
 
   void _onItemTapped(int index){
     _selectedIndex=index;
-    print('${_selectedIndex}');
+    setState(() {
+      _selectedIndex=index;
+    });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Tickets"),
+        title: const Text("My Tickets"),
       ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         elevation: 10,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedItemColor: Colors.blueGrey,
+        type: BottomNavigationBarType.fixed,
         unselectedItemColor: const Color(0xFF526480),
         items: const [
           BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_home_regular), 
