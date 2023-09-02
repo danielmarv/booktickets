@@ -11,7 +11,18 @@ class HomeScreen extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            child: Column(),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      "Good Morning"
+                    ),
+                    Image.asset("assets/images/img_1.png")
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),
